@@ -1,1 +1,48 @@
+version: "3.1"
 
+stories:
+  - story: greet and budget planning
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_budget_tips
+      - action: financial_wellness_form
+      - active_loop: financial_wellness_form
+      - intent: provide_income
+        entities:
+          - income: "5000"
+      - action: financial_wellness_form
+      - intent: provide_expenses
+        entities:
+          - expenses: "2500"
+      - action: financial_wellness_form
+      - intent: provide_savings_goal
+        entities:
+          - savings_goal: "12000"
+      - action: financial_wellness_form
+      - intent: provide_risk_tolerance
+        entities:
+          - risk_tolerance: conservative
+      - action: financial_wellness_form
+      - active_loop: null
+      - action: action_provide_financial_summary
+      - intent: thank_you
+      - action: utter_thank_you
+
+  - story: investment guidance
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_investment_strategy
+      - action: utter_investment_strategy
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: savings tips
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: ask_savings_strategy
+      - action: utter_savings_strategy
+      - intent: thank_you
+      - action: utter_thank_you
