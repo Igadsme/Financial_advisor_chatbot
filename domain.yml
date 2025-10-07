@@ -1,1 +1,91 @@
+version: "3.1"
 
+intents:
+  - affirm
+  - ask_budget_tips
+  - ask_emergency_fund
+  - ask_investment_strategy
+  - ask_savings_strategy
+  - deny
+  - goodbye
+  - greet
+  - out_of_scope
+  - provide_expenses
+  - provide_income
+  - provide_risk_tolerance
+  - provide_savings_goal
+  - thank_you
+
+entities:
+  - expenses
+  - income
+  - risk_tolerance
+  - savings_goal
+
+slots:
+  income:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: income
+  expenses:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: expenses
+  savings_goal:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: savings_goal
+  risk_tolerance:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: risk_tolerance
+
+responses:
+  utter_greet:
+    - text: "Hello! I'm your financial wellness assistant. I can help you build a budget, plan savings, and explore investment strategies. How can I help you today?"
+  utter_goodbye:
+    - text: "Goodbye! Remember to review your budget regularly."
+  utter_thank_you:
+    - text: "Happy to help! Let me know if you need anything else."
+  utter_ask_income:
+    - text: "To get started, what is your average monthly take-home income?"
+  utter_ask_expenses:
+    - text: "Great. About how much do you typically spend each month on essential expenses?"
+  utter_ask_savings_goal:
+    - text: "Do you have a savings goal in mind or a target amount you're working toward?"
+  utter_ask_risk_tolerance:
+    - text: "How would you describe your investment risk tolerance? (e.g., conservative, moderate, or aggressive)"
+  utter_investment_strategy:
+    - text: "A diversified portfolio is usually a good starting point. Consider spreading your investments across index funds or ETFs, keep costs low, and periodically rebalance. The exact mix should reflect your time horizon and risk tolerance."
+  utter_savings_strategy:
+    - text: "Automating transfers to a dedicated savings account right after you get paid is one of the best ways to stay consistent. Track progress monthly and celebrate small milestones to stay motivated."
+  utter_emergency_fund:
+    - text: "Aim for an emergency fund worth three to six months of essential expenses. Keep it in a high-yield savings account so it's accessible when you need it."
+  utter_default:
+    - text: "I'm not sure I understood that. Could you rephrase your question or ask something about budgeting, saving, or investing?"
+  utter_out_of_scope:
+    - text: "I'm designed to talk about personal finance topics like budgeting, saving, and investing. Could you ask me something along those lines?"
+
+forms:
+  financial_wellness_form:
+    required_slots:
+      - income
+      - expenses
+      - savings_goal
+      - risk_tolerance
+
+actions:
+  - action_provide_financial_summary
+  - validate_financial_wellness_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

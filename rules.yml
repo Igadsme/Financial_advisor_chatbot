@@ -1,0 +1,46 @@
+version: "3.1"
+
+rules:
+  - rule: activate financial wellness form
+    steps:
+      - intent: ask_budget_tips
+      - action: financial_wellness_form
+      - active_loop: financial_wellness_form
+
+  - rule: submit financial wellness form
+    condition:
+      - active_loop: financial_wellness_form
+    steps:
+      - action: financial_wellness_form
+      - active_loop: null
+      - action: action_provide_financial_summary
+
+  - rule: respond to investment questions
+    steps:
+      - intent: ask_investment_strategy
+      - action: utter_investment_strategy
+
+  - rule: respond to savings questions
+    steps:
+      - intent: ask_savings_strategy
+      - action: utter_savings_strategy
+
+  - rule: respond to emergency fund questions
+    steps:
+      - intent: ask_emergency_fund
+      - action: utter_emergency_fund
+
+  - rule: say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: out of scope
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+
+  - rule: handle fallback
+    steps:
+      - intent: nlu_fallback
+      - action: utter_default

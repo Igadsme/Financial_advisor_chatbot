@@ -1,1 +1,131 @@
+version: "3.1"
 
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hey
+      - hello
+      - good morning
+      - good evening
+      - hey there
+      - hi there
+      - greetings
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - catch you later
+      - talk to you soon
+      - see you later
+      - that's all for now
+  - intent: affirm
+    examples: |
+      - yes
+      - exactly
+      - that's right
+      - sure thing
+      - sounds good
+      - please do
+  - intent: deny
+    examples: |
+      - no
+      - not really
+      - don't do that
+      - I'd rather not
+      - nope
+      - that's not what I need
+  - intent: thank_you
+    examples: |
+      - thanks
+      - thank you so much
+      - appreciate it
+      - you were helpful
+      - thank you for the guidance
+      - great, thanks
+  - intent: ask_budget_tips
+    examples: |
+      - I need help creating a budget
+      - can you help me plan my finances?
+      - give me some budgeting advice
+      - how should I manage my money better?
+      - I want to understand my monthly budget
+      - what should I do to improve my spending plan?
+  - intent: provide_income
+    examples: |
+      - I earn [4200](income) dollars each month
+      - my monthly income is [5500](income)
+      - it's about [3000](income) per month
+      - I bring home [2500](income) after taxes
+      - my paycheck is roughly [4000](income) monthly
+      - around [6000](income) each month
+  - intent: provide_expenses
+    examples: |
+      - I spend [2300](expenses) on necessities
+      - my expenses are [1800](expenses) every month
+      - around [3200](expenses) goes to bills and groceries
+      - housing and bills cost me [2500](expenses)
+      - maybe [1500](expenses) per month in expenses
+      - my costs add up to [2800](expenses)
+  - intent: provide_savings_goal
+    examples: |
+      - I'm saving [10000](savings_goal) dollars for a down payment
+      - I want to build a [5000](savings_goal) emergency fund
+      - My goal is to save [15000](savings_goal)
+      - I'm trying to reach [8000](savings_goal) in savings
+      - I'd like to put away [20000](savings_goal)
+      - I need to save [3000](savings_goal) for travel
+  - intent: provide_risk_tolerance
+    examples: |
+      - I'm pretty [conservative](risk_tolerance)
+      - I'd say I'm [moderate](risk_tolerance) with risk
+      - my risk level is [aggressive](risk_tolerance)
+      - I'm comfortable with [balanced](risk_tolerance) investments
+      - I'd describe myself as [low risk](risk_tolerance)
+      - maybe a [high risk](risk_tolerance) profile suits me
+  - intent: ask_investment_strategy
+    examples: |
+      - what kind of investments should I consider?
+      - how should I invest my money?
+      - any ideas for investing wisely?
+      - give me investment tips
+      - where should I put my savings to grow?
+      - best investment strategy for me?
+  - intent: ask_savings_strategy
+    examples: |
+      - how can I save money more consistently?
+      - give me a plan to save better
+      - what savings strategy do you recommend?
+      - tips for building my savings faster?
+      - how do I stay on track with saving?
+      - what's a smart savings plan?
+  - intent: ask_emergency_fund
+    examples: |
+      - how big should an emergency fund be?
+      - what amount is good for emergencies?
+      - tell me about emergency savings
+      - how much should I keep for unexpected expenses?
+      - what's a safe emergency fund target?
+  - intent: out_of_scope
+    examples: |
+      - can you tell me the weather?
+      - who won the football game?
+      - I need help booking a flight
+      - let's talk about cooking recipes
+      - can you fix my computer?
+      - what's the capital of France?
+
+synonyms:
+  - synonym: conservative
+    examples: |
+      - low risk
+      - risk averse
+      - cautious
+  - synonym: moderate
+    examples: |
+      - balanced
+      - medium risk
+  - synonym: aggressive
+    examples: |
+      - high risk
+      - growth oriented
