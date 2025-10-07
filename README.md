@@ -1,6 +1,5 @@
 # Financial Advisor Chatbot
 
-This project contains a conversational assistant built with [Rasa](https://rasa.com/) that provides actionable budgeting, saving, and introductory investment guidance. The bot collects a quick financial profile, computes how much the user can save each month, and returns tailored suggestions.
 
 ## Features
 
